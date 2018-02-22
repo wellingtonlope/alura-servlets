@@ -2,14 +2,27 @@
 	<body>
 		Bem vindo ao nosso gerenciador de empresas!<br/>
 		<form action="novaEmpresa" method="post">
-			Nome: <input type="text" name="nome"/>
+			<label>
+				Nome:
+				<input type="text" name="nome"/>
+			</label>
 			<input type="submit" value="Enviar"/>
 		</form>
 
 		<form action="login" method="post">
-			Email: <input type="email" name="email"/>
-			Senha: <input type="password" name="senha"/>
+			<label>
+				Email:
+				<input type="email" name="email"/>
+			</label>
+			<label>
+				Senha:
+				<input type="password" name="senha"/>
+			</label>
 			<input type="submit" value="Enviar"/>
+		</form>
+
+		<form action="logout" method="post">
+			<input type="submit" value="Deslogar"/>
 		</form>
 	</body>
 </html>
