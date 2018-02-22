@@ -1,5 +1,7 @@
 package br.com.alura.gerenciador.web;
 
+import br.com.alura.gerenciador.Usuario;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -14,14 +16,11 @@ public class Logout extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Cookie cookie = new Cookies(req.getCookies()).buscaUsuarioLogado();
+		req.getSession().removeAttribute("usuario.logado");
+		//ou invalidate tira tudo que estava na session
+		//req.getSession().invalidate();
+		//req.getSession().setMaxInactiveInterval(0);
 		PrintWriter writer = resp.getWriter();
-		if (cookie == null) {
-			writer.println("<html><body>Usuario não estava logado</body></html>");
-			return;
-		}
-		cookie.setMaxAge(0);
-		resp.addCookie(cookie);
 		writer.println("<html><body>Deslogado com sucesso</body></html>");
 	}
 
