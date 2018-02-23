@@ -11,16 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/logout")
-public class Logout extends HttpServlet {
+public class Logout implements Tarefa {
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getSession().removeAttribute("usuarioLogado");
+	public String executa(HttpServletRequest request, HttpServletResponse response) {
+		request.getSession().removeAttribute("usuarioLogado");
 		//ou invalidate tira tudo que estava na session
 		//req.getSession().invalidate();
 		//req.getSession().setMaxInactiveInterval(0);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logout.html");
-		dispatcher.forward(req, resp);
+		return "/WEB-INF/paginas/logout.html";
 	}
 
 }
