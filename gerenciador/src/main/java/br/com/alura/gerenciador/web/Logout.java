@@ -15,7 +15,7 @@ public class Logout extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getSession().removeAttribute("usuario.logado");
+		req.getSession().removeAttribute("usuarioLogado");
 		//ou invalidate tira tudo que estava na session
 		//req.getSession().invalidate();
 		//req.getSession().setMaxInactiveInterval(0);
